@@ -58,17 +58,14 @@ The package also contains an ad-hoc */example* folder with an app designed to lo
 
 1. A use case for ThemeManager for dark/light theme design
 2. An example of dark/light switching via a button in the upper right corner
-3. Localization using the package level */l10n .arb* files for localation key/values for shared use by both the package and *Dem0App*
+3. Localization using the package level ```/l10n``` are  ```.arb```  files for localation key/values for shared use by both the package and ```Dem0App```
 
-- Localization can have errors after *flutter pub get* in how the l10n.yaml file is skipped because of ***bug*** during the flutter the build.
+### Language errors because Dart Analyzer crashed on VSCode
 
-```dart
-//*********************************************************************************
-// If errors like 'Traget URI doesn't...' or 'Undefined name 'AppLocalizations'
-// try 'flutter pub get' once more (or twice), or just run the app and they
-// should disappear
-//*********************************************************************************
-```
+If errors like ```Traget URI doesn't...``` or ```Undefined name 'AppLocalizations'``` Reload the Dart Analyzer
+
+1) Open the Command Palette (Ctrl+Shift+P)
+2) Enter and select ```Developer: Reload Window```
 
 ## Useage
 
