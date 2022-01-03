@@ -8,6 +8,8 @@ The package also contains an ad-hoc */example* folder with an app designed to lo
 
 **^^The */example* that creates an app is also a great foundation for an app beyond development and proof-of-concept(POC)**
 
+**Code Generation** Is key aspect of this package
+
 ---
 
 ## Setup
@@ -26,11 +28,22 @@ The package also contains an ad-hoc */example* folder with an app designed to lo
 
 ***replace_domain** will be part of the reverse domain used by XCode and Android in the app/product name. Choose carefully!*
 
-### Optional action for **localization**
+- Localization: Search/Replace '*YYY*' with unique-ish three(3) uppercase characters. This will set a base of package-level localization that begin with YYY (eg YYYLocalization.HelloWorld)
 
-- [Optional] Search/Replace '*DictionaryEnum*' with a name better suited for your app's vocabulary
+- To create localization at the application level: Search/Replace '*XYX*' with unique-ish three(3) uppercase characters, that create localization like XYXLocalization.HelloWorld
 
-- Localization: At the root of the template is **/l10n**, within are **.arb** files with the localization key/value pairs. On **flutter pub get** the localization files will be generated in both the *packge* AND */example* space. There are **mixin.dart** files in both spaces that provide a **lookup** mixin, that uses the vales of ***DictionaryEnum*** to get localized text
+***PAY ATTENTION 'YYY' vs 'XYX' => YYY: Package-level, XYX: Application-level***
+
+- FINAL CRITICAL STEP
+
+```text
+ % !From the terminal run
+ % flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+This will build the ```lib/localizations/*.i69n.dart``` files, generate ```ib/localizations/dictionary_enum.g.dart```, ```lib/src/cubit/localization_cubit.g.dart``` at the package level.
+
+At the **/example** level ```example/lib/cubit/localization_cubit.g.dart``` and ```example/lib/localization/dictionary_enum.g.dart```, and the ```example/lib/localization/*.i69n.dart``` files.
 
 ### **Important**: Make these ***Setup*** changes your initial comment to version control before proceeding
 
@@ -76,8 +89,6 @@ The 'example' directory is an app that includes:
 - Usage of [flutter_modular](https://pub.dev/packages/flutter_modular)
 
 - Localizations using [intl](https://pub.dev/packages/intl)
-
-- User settable Light/Dark mode using [ThemeManager](https://github.com/GitHubStuff/theme_manager) {Tap the light-bulb in the upper right corner}
 
 ## Final note
 
